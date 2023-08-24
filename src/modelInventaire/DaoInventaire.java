@@ -14,8 +14,8 @@ public class DaoInventaire implements IDaoInventaire {
     private static DaoInventaire instanceDao = null;
 
     // MySQL
-    //private static final String PILOTE = "com.mysql.jdbc.Driver";
-    private static final String URL_BD = "jdbc:mysql://localhost/fleuriste_titania";
+    private static final String PILOTE = "com.mysql.jdbc.Driver";
+    private static final String URL_BD = "jdbc:mysql://localhost:8080/fleuriste_titania";
     private static final String USAGER = "root";
     private static final String PASS = "";
 
@@ -36,10 +36,9 @@ public class DaoInventaire implements IDaoInventaire {
     
     public static synchronized DaoInventaire getInventaireDao () {
         try {
-            // Class.forName(PILOTE);
+            Class.forName(PILOTE);
             if (instanceDao == null) {
                 instanceDao = new DaoInventaire();
-                Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection(URL_BD, USAGER, PASS);
             }
             return instanceDao;
@@ -71,8 +70,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -99,8 +98,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
 
         return listeInventaire;
@@ -132,8 +131,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -162,8 +161,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -180,8 +179,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -204,13 +203,13 @@ public class DaoInventaire implements IDaoInventaire {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
     //UTILITAIRES
-    private static void MdlF_Fermer(Connection conn) {
+    private static void MdlI_Fermer(Connection conn) {
         if (conn != null) {
             try {
                 conn.close();
@@ -221,7 +220,7 @@ public class DaoInventaire implements IDaoInventaire {
         }
     }
 
-    private static void MdlF_Fermer(Statement stmt) {
+    private static void MdlI_Fermer(Statement stmt) {
         if (stmt != null) {
             try {
                 stmt.close();

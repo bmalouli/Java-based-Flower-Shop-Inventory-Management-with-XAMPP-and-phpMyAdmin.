@@ -28,10 +28,10 @@ public class ControleurInventaire implements IActionsInventaire {
     }
 
     // Actions sur modèle
-    public String CtrI_MiseAJour(Inventaire fleur) {
-        String message = null;
-        message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
-        return message;
+    public int CtrI_MiseAJour(Inventaire fleur) {
+        int reponse = 0;
+        reponse = Dao_Instance.MdlI_MiseAJour(fleur); //renvoi le nombre de lignes qui ont été mises à jour
+        return reponse;
     }
 
     public List<Inventaire> CtrI_GetAll() {
@@ -41,30 +41,30 @@ public class ControleurInventaire implements IActionsInventaire {
     }
 
 
-    // public Inventaire CtrI_GetById(int id) {
-    //     Inventaire message = null;
-    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
-    //     return message;
-    // }
+    public Inventaire CtrI_GetById(int id) {
+        Inventaire fleur = null;
+        fleur = Dao_Instance.MdlI_GetById(id); 
+        return fleur;
+    }
 
 
-    // public Inventaire CtrI_GetByName(String name) {
-    //     String message = null;
-    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
-    //     return message;
-    // }
+    public Inventaire CtrI_GetByName(String name) {
+        Inventaire fleur = null;
+        fleur = Dao_Instance.MdlI_GetByName(name);
+        return fleur;
+    }
 
 
-    // public int CtrI_Supprimer(int id) {
-    //     String message = null;
-    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
-    //     return message;
-    // }
+    public int CtrI_Supprimer(int id) {
+        int reponse = -1;
+        reponse = Dao_Instance.MdlI_Supprimer(id); //renvoi le nombre de lignes qui ont été supprimées
+        return reponse;
+    }
 
 
-    // public String CtrI_Ajouter(Inventaire fleur) {
-    //     String message = null;
-    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
-    //     return message;
-    // }
+    public String CtrI_Ajouter(Inventaire fleur) {
+        String message = null;
+        message = Dao_Instance.MdlI_Ajouter(fleur); //message de confirmation
+        return message;
+    }
 }
