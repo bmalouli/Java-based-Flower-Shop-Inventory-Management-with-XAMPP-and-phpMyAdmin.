@@ -1,5 +1,5 @@
 package controleurInventaire;
-
+import java.util.List;
 import modelInventaire.Inventaire;
 import modelInventaire.DaoInventaire;
 import java.util.*;
@@ -66,5 +66,9 @@ public class ControleurInventaire implements IActionsInventaire {
         String message = null;
         message = Dao_Instance.MdlI_Ajouter(fleur); //message de confirmation
         return message;
+    }
+
+    public List<Inventaire> CtrF_GetAllFilms(){
+        return Dao_Instance.MdlI_GetAll();
     }
 }
