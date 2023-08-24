@@ -19,7 +19,7 @@ public final class App {
         // fleur.setPrice();
         // fleur.setQuantity();
         
-        // ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
+        //ControleurInventaire CtrI_Instance = ControleurInventaire.getControleurInventaire();
         // List<Inventaire> liste = CtrF.CtrI_GetAll();
         // System.out.println(liste);
         FleuristeTitaniaMenu frame = new FleuristeTitaniaMenu();
