@@ -36,7 +36,7 @@ public class DaoInventaire implements IDaoInventaire {
     
     public static synchronized DaoInventaire getInventaireDao () {
         try {
-            // Class.forName(PILOTE);
+            //Class.forName(PILOTE);
             if (instanceDao == null) {
                 instanceDao = new DaoInventaire();
                 conn = DriverManager.getConnection(URL_BD, USAGER, PASS);
