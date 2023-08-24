@@ -1,3 +1,5 @@
+package main.vues;
+
 import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -48,7 +50,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         btnLister.setForeground(new Color(178, 114, 118));
         btnLister.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                //dispose();
                 ListeFleursFrame listeFleursFrame = new ListeFleursFrame();
                 listeFleursFrame.setVisible(true);
             }
