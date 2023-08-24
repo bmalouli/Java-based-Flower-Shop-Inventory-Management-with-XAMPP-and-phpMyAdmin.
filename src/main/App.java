@@ -11,14 +11,15 @@ public final class App {
         // Selon le choix de l'utilisateur faudra appeler la bonne méthode
         // du contrôleur.
         // CAS 1 : Enregistrer un film
-        Inventaire fleur = new Inventaire ();
+        // Inventaire fleur = new Inventaire ();
+
         // fleur.setName();
         // fleur.setColor();
         // fleur.setPrice();
         // fleur.setQuantity();
         
-        // ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
+        ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
         // String message = CtrF.CtrI_Enregistrer(fleur);
-        // System.out.println(message);
+        System.out.println(CtrF.CtrF_GetAllFilms());
     }
 }

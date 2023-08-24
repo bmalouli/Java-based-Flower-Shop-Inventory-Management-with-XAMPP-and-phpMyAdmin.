@@ -1,5 +1,5 @@
 package controleurInventaire;
-
+import java.util.List;
 import modelInventaire.Inventaire;
 import modelInventaire.DaoInventaire;
 
@@ -29,5 +29,9 @@ public class ControleurInventaire implements IActionsInventaire {
         String message = null;
         message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //vérifier valeur de retour
         return message;
+    }
+
+    public List<Inventaire> CtrF_GetAllFilms(){
+        return Dao_Instance.MdlI_GetAll();
     }
 }

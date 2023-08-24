@@ -43,7 +43,7 @@ public class DaoInventaire implements IDaoInventaire {
             }
             return instanceDao;
         } catch (Exception e) {
-            // e.printStackTrace();
+             e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
