@@ -159,7 +159,6 @@ public class DaoInventaire implements IDaoInventaire {
             throw new RuntimeException(e);
         } finally {
             MdlI_Fermer(stmt);
-            MdlI_Fermer(conn);
         }
     }
 
