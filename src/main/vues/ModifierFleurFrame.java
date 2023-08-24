@@ -44,36 +44,36 @@ public class ModifierFleurFrame extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        JLabel lblNewLabel = new JLabel("Entrer le ID de la fleur à modifier:");
-        lblNewLabel.setForeground(new Color(182, 134, 111));
-        lblNewLabel.setBounds(72, 92, 224, 16);
-        contentPane.add(lblNewLabel);
+        JLabel lblModifierLabel = new JLabel("Entrer le ID de la fleur à modifier:");
+        lblModifierLabel.setForeground(new Color(182, 134, 111));
+        lblModifierLabel.setBounds(72, 92, 224, 16);
+        contentPane.add(lblModifierLabel);
         
-        JLabel lblNom = new JLabel("Modifier le NOM:");
-        lblNom.setForeground(new Color(182, 134, 111));
-        lblNom.setBounds(158, 170, 112, 16);
-        contentPane.add(lblNom);
+        JLabel lblModifierNom = new JLabel("Modifier le NOM:");
+        lblModifierNom.setForeground(new Color(182, 134, 111));
+        lblModifierNom.setBounds(158, 170, 112, 16);
+        contentPane.add(lblModifierNom);
         
-        JLabel lblCouleur = new JLabel("Modifier la COULEUR:");
-        lblCouleur.setForeground(new Color(182, 134, 111));
-        lblCouleur.setBounds(158, 217, 150, 16);
-        contentPane.add(lblCouleur);
+        JLabel lblModifierCouleur = new JLabel("Modifier la COULEUR:");
+        lblModifierCouleur.setForeground(new Color(182, 134, 111));
+        lblModifierCouleur.setBounds(158, 217, 150, 16);
+        contentPane.add(lblModifierCouleur);
         
-        JLabel lblPrix = new JLabel("Modifier le PRIX:");
-        lblPrix.setForeground(new Color(182, 134, 111));
-        lblPrix.setBounds(158, 265, 112, 16);
-        contentPane.add(lblPrix);
+        JLabel lblModifierPrix = new JLabel("Modifier le PRIX:");
+        lblModifierPrix.setForeground(new Color(182, 134, 111));
+        lblModifierPrix.setBounds(158, 265, 112, 16);
+        contentPane.add(lblModifierPrix);
         
-        JLabel lblQuantit = new JLabel("Modifier la QUANTITÉ:");
-        lblQuantit.setForeground(new Color(182, 134, 111));
-        lblQuantit.setBounds(162, 312, 146, 16);
-        contentPane.add(lblQuantit);
+        JLabel lblModifierQuantite = new JLabel("Modifier la QUANTITÉ:");
+        lblModifierQuantite.setForeground(new Color(182, 134, 111));
+        lblModifierQuantite.setBounds(162, 312, 146, 16);
+        contentPane.add(lblModifierQuantite);
         
-        JLabel lblFleursEnStock = new JLabel("Modification d'une fleur");
-        lblFleursEnStock.setForeground(new Color(178, 114, 118));
-        lblFleursEnStock.setFont(new Font("Arial", Font.BOLD, 24));
-        lblFleursEnStock.setBounds(265, 31, 295, 29);
-        contentPane.add(lblFleursEnStock);
+        JLabel lblFleursModifier = new JLabel("Modification d'une fleur");
+        lblFleursModifier.setForeground(new Color(178, 114, 118));
+        lblFleursModifier.setFont(new Font("Arial", Font.BOLD, 24));
+        lblFleursModifier.setBounds(265, 31, 295, 29);
+        contentPane.add(lblFleursModifier);
         
         textFieldID = new JTextField();
         textFieldID.setBounds(308, 87, 210, 26);
