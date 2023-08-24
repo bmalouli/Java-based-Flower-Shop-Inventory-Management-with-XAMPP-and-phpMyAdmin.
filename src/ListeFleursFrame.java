@@ -1,7 +1,4 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -25,12 +22,12 @@ public class ListeFleursFrame extends JFrame {
     public ListeFleursFrame() {
     	setTitle("Lister les fleurs");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 600);
+        setBounds(100, 100, 800, 600); // Définir la taille du JFrame
         contentPane = new JPanel();
         contentPane.setBackground(new Color(243, 231, 230));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        contentPane.setLayout(null);
+        contentPane.setLayout(null); // Vous pouvez également utiliser un autre gestionnaire de mise en page pour organiser les composants
         
         JLabel lblNewLabel = new JLabel("ID");
         lblNewLabel.setForeground(new Color(182, 134, 111));
@@ -65,16 +62,11 @@ public class ListeFleursFrame extends JFrame {
         
         JButton btnNewButton = new JButton("Retour au menu");
         btnNewButton.setForeground(new Color(167, 116, 117));
-        btnNewButton.addActionListener((ActionListener) new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                FleuristeTitaniaMenu FleuristeTitaniaMenu = new FleuristeTitaniaMenu();
-                FleuristeTitaniaMenu.setVisible(true);
-            }
-        });
         btnNewButton.setBounds(19, 537, 143, 29);
         contentPane.add(btnNewButton);
-
         
+        JScrollPane scrollPaneLister = new JScrollPane();
+        scrollPaneLister.setBounds(52, 139, 687, 386);
+        contentPane.add(scrollPaneLister);
     }
 }
