@@ -1,6 +1,7 @@
 package main;
 
 import controleurInventaire.ControleurInventaire;
+import main.vues.FleuristeTitaniaMenu;
 import modelInventaire.Inventaire;
 import java.util.*;
 
@@ -18,8 +19,10 @@ public final class App {
         // fleur.setPrice();
         // fleur.setQuantity();
         
-        ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
-        List<Inventaire> liste = CtrF.CtrI_GetAll();
-        System.out.println(liste);
+        // ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
+        // List<Inventaire> liste = CtrF.CtrI_GetAll();
+        // System.out.println(liste);
+        FleuristeTitaniaMenu frame = new FleuristeTitaniaMenu();
+        frame.setVisible(true);
     }
 }
