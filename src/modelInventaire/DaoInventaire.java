@@ -64,6 +64,7 @@ public class DaoInventaire implements IDaoInventaire {
             stmt.setString(2, fleur.getColor());
             stmt.setInt(3, fleur.getPrice());
             stmt.setInt(4, fleur.getQuantity());
+            stmt.setInt(5, fleur.getId());
             return stmt.executeUpdate(); //devrait retourner 1 car une ligne de la table a été modifiée
         } catch (SQLException e) {
             // e.printStackTrace();
