@@ -31,7 +31,6 @@ public class ListeFleursFrame extends JFrame {
         ControleurInventaire cont = ControleurInventaire.getControleurInventaire();
         this.listeInventaire = cont.CtrI_GetAll();
         
-        System.out.println(listeInventaire);
     	setTitle("Lister les fleurs");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 600); // Définir la taille du JFrame
@@ -84,7 +83,16 @@ public class ListeFleursFrame extends JFrame {
         });
         contentPane.add(btnNewButton);
         
-        JScrollPane scrollPaneLister = new JScrollPane();
+        JTable tableau = new JTable(listeInventaire.size(),5);
+        for (int i = 0;i<listeInventaire.size();i++) {
+        	Inventaire fleur =listeInventaire.get(i);
+        	tableau.setValueAt(fleur.getId(), i, 0);
+        	tableau.setValueAt(fleur.getName(), i, 1);
+        	tableau.setValueAt(fleur.getColor(), i, 2);
+        	tableau.setValueAt(fleur.getPrice(), i, 3);
+        	tableau.setValueAt(fleur.getQuantity(), i, 4);
+        }
+        JScrollPane scrollPaneLister = new JScrollPane(tableau);
         scrollPaneLister.setBounds(52, 139, 687, 386);
         contentPane.add(scrollPaneLister);
     }
