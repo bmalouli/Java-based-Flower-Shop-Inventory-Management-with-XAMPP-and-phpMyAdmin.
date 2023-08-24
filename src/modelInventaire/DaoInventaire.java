@@ -52,6 +52,30 @@ public class DaoInventaire implements IDaoInventaire {
 
     //IMPLÉMENTATION DES MÉTHODES PROPRES À LA GESTION DE LA TABLE inventaire DE LA BDD
 
+    // Update, il faut avant appeler MdlI_GetById(id) pour obtenir
+    // les données à modifier via une interface et après envoyer 
+    // à MdlI_Enregistrer(fleur) pour faire la mise à  jour.
+    public int MdlI_MiseAJour(Inventaire fleur) {
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement(MAJ);
+            stmt.setString(1, fleur.getName());
+            stmt.setString(2, fleur.getColor());
+            stmt.setInt(3, fleur.getPrice());
+            stmt.setInt(4, fleur.getQuantity());
+
+            return stmt.executeUpdate(); //devrait retourner 1 car une ligne de la table a été modifiée
+        } catch (SQLException e) {
+            // e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            MdlF_Fermer(stmt);
+            MdlF_Fermer(conn);
+        }
+    }
+
+
     public List<Inventaire> MdlI_GetAll() {
         PreparedStatement stmt = null;
         List<Inventaire> listeInventaire = new ArrayList<Inventaire>();
@@ -133,29 +157,6 @@ public class DaoInventaire implements IDaoInventaire {
             } else {
                 return null;
             }
-        } catch (SQLException e) {
-            // e.printStackTrace();
-            throw new RuntimeException(e);
-        } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
-        }
-    }
-
-    // Update, il faut avant appeler MdlI_GetById(id) pour obtenir
-    // les données à modifier via une interface et après envoyer 
-    // à MdlI_Enregistrer(fleur) pour faire la mise à  jour.
-    public int MdlI_MiseAJour(Inventaire fleur) {
-        PreparedStatement stmt = null;
-       ;
-        try {
-            stmt = conn.prepareStatement(MAJ);
-            stmt.setString(1, fleur.getName());
-            stmt.setString(2, fleur.getColor());
-            stmt.setInt(3, fleur.getPrice());
-            stmt.setInt(4, fleur.getQuantity());
-
-            return stmt.executeUpdate();
         } catch (SQLException e) {
             // e.printStackTrace();
             throw new RuntimeException(e);

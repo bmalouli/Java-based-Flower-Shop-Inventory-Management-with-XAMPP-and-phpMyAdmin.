@@ -2,6 +2,7 @@ package controleurInventaire;
 
 import modelInventaire.Inventaire;
 import modelInventaire.DaoInventaire;
+import java.util.*;
 
 public class ControleurInventaire implements IActionsInventaire {
 
@@ -18,6 +19,7 @@ public class ControleurInventaire implements IActionsInventaire {
             if (CtrI_Instance == null) {
                 CtrI_Instance = new ControleurInventaire();
                 Dao_Instance = DaoInventaire.getInventaireDao();
+                CtrI_Instance.CtrI_GetAll();
             }
             return CtrI_Instance;
         } catch (Exception e) {
@@ -25,9 +27,46 @@ public class ControleurInventaire implements IActionsInventaire {
             throw new RuntimeException(e);
         }
     }
-    public String ctrI_MiseAJour(Inventaire fleur) {
+
+    // Actions sur modèle
+    public String CtrI_MiseAJour(Inventaire fleur) {
         String message = null;
-        message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //vérifier valeur de retour
+        message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
         return message;
     }
+
+    public void CtrI_GetAll() {
+        List<Inventaire> inventaireComplet = new ArrayList<>();
+        inventaireComplet = Dao_Instance.MdlI_GetAll();
+        System.out.print(inventaireComplet);
+        // return inventaireComplet;
+    }
+
+
+    // public Inventaire CtrI_GetById(int id) {
+    //     Inventaire message = null;
+    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
+    //     return message;
+    // }
+
+
+    // public Inventaire CtrI_GetByName(String name) {
+    //     String message = null;
+    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
+    //     return message;
+    // }
+
+
+    // public int CtrI_Supprimer(int id) {
+    //     String message = null;
+    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
+    //     return message;
+    // }
+
+
+    // public String CtrI_Ajouter(Inventaire fleur) {
+    //     String message = null;
+    //     message = String.valueOf(Dao_Instance.MdlI_MiseAJour(fleur)); //renvoi le nombre de ligne qui ont été mises à jour
+    //     return message;
+    // }
 }
