@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controleurInventaire.ControleurInventaire;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -29,6 +32,7 @@ public class FleuristeTitaniaMenu extends JFrame {
     }
 
     public FleuristeTitaniaMenu() {
+        
     	setTitle("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -50,7 +54,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         btnLister.setForeground(new Color(178, 114, 118));
         btnLister.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //dispose();
+                dispose();
                 ListeFleursFrame listeFleursFrame = new ListeFleursFrame();
                 listeFleursFrame.setVisible(true);
             }
@@ -88,6 +92,8 @@ public class FleuristeTitaniaMenu extends JFrame {
         btnQuitter.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
                 dispose();
+                ControleurInventaire cont = ControleurInventaire.getControleurInventaire();
+                cont.CtrI_Fermer();
         	}
         });
         btnQuitter.setForeground(new Color(178, 114, 118));
