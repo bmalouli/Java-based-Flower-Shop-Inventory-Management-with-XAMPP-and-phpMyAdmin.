@@ -70,7 +70,6 @@ public class DaoInventaire implements IDaoInventaire {
             throw new RuntimeException(e);
         } finally {
             MdlI_Fermer(stmt);
-            MdlI_Fermer(conn);
         }
     }
 
@@ -98,7 +97,7 @@ public class DaoInventaire implements IDaoInventaire {
             throw new RuntimeException(e);
         } finally {
             MdlI_Fermer(stmt);
-            MdlI_Fermer(conn);
+            //MdlI_Fermer(conn);
         }
 
         return listeInventaire;
@@ -131,7 +130,6 @@ public class DaoInventaire implements IDaoInventaire {
             throw new RuntimeException(e);
         } finally {
             MdlI_Fermer(stmt);
-            MdlI_Fermer(conn);
         }
     }
 
@@ -179,7 +177,6 @@ public class DaoInventaire implements IDaoInventaire {
             throw new RuntimeException(e);
         } finally {
             MdlI_Fermer(stmt);
-            MdlI_Fermer(conn);
         }
     }
 
@@ -203,8 +200,11 @@ public class DaoInventaire implements IDaoInventaire {
             throw new RuntimeException(e);
         } finally {
             MdlI_Fermer(stmt);
-            MdlI_Fermer(conn);
         }
+    }
+    
+    public void MdlI_FermerTout() {
+    	MdlI_Fermer(conn);
     }
 
     //UTILITAIRES

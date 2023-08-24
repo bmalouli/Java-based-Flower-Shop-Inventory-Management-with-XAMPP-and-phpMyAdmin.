@@ -1,11 +1,17 @@
 package main.vues;
-
+import java.util.*;
+import java.util.List;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import modelInventaire.Inventaire;
+import controleurInventaire.ControleurInventaire;
 
 public class ListeFleursFrame extends JFrame {
-
+    private List<Inventaire> listeInventaire;
     private JPanel contentPane;
 
     public static void main(String[] args) {
@@ -22,6 +28,10 @@ public class ListeFleursFrame extends JFrame {
     }
 
     public ListeFleursFrame() {
+        ControleurInventaire cont = ControleurInventaire.getControleurInventaire();
+        this.listeInventaire = cont.CtrI_GetAll();
+        
+        System.out.println(listeInventaire);
     	setTitle("Lister les fleurs");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 600); // Définir la taille du JFrame
@@ -65,6 +75,13 @@ public class ListeFleursFrame extends JFrame {
         JButton btnNewButton = new JButton("Retour au menu");
         btnNewButton.setForeground(new Color(167, 116, 117));
         btnNewButton.setBounds(19, 537, 143, 29);
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                FleuristeTitaniaMenu menuTitanaiFrame = new FleuristeTitaniaMenu();
+                menuTitanaiFrame.setVisible(true);
+                dispose();
+            }
+        });
         contentPane.add(btnNewButton);
         
         JScrollPane scrollPaneLister = new JScrollPane();

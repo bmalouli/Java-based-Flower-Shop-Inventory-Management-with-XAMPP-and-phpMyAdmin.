@@ -68,7 +68,7 @@ public class ControleurInventaire implements IActionsInventaire {
         return message;
     }
 
-    public List<Inventaire> CtrF_GetAllFilms(){
-        return Dao_Instance.MdlI_GetAll();
+    public void CtrI_Fermer() {
+        Dao_Instance.MdlI_FermerTout();
     }
 }
