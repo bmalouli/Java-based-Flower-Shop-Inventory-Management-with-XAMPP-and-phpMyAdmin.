@@ -78,10 +78,10 @@ public class SupprimerFleurFrame extends JFrame {
         btnAccepter.setBounds(434, 451, 143, 29);
         contentPane.add(btnAccepter);
         
-        JButton btnModifier = new JButton("Supprimer");
-        btnModifier.setForeground(new Color(167, 116, 117));
-        btnModifier.setBounds(565, 87, 143, 29);
-        contentPane.add(btnModifier);
+        JButton btnSupprimer = new JButton("Rechercher fleur à supprimer");
+        btnSupprimer.setForeground(new Color(167, 116, 117));
+        btnSupprimer.setBounds(545, 87, 224, 29);
+        contentPane.add(btnSupprimer);
         
         JLabel lblNom_1 = new JLabel("Les informations sur la fleur à supprimer:");
         lblNom_1.setForeground(new Color(182, 134, 111));
