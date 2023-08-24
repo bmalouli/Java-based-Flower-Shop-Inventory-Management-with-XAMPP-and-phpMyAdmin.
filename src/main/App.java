@@ -2,6 +2,7 @@ package main;
 
 import controleurInventaire.ControleurInventaire;
 import modelInventaire.Inventaire;
+import java.util.*;
 
 public final class App {
     private App() {
@@ -11,14 +12,14 @@ public final class App {
         // Selon le choix de l'utilisateur faudra appeler la bonne méthode
         // du contrôleur.
         // CAS 1 : Enregistrer un film
-        Inventaire fleur = new Inventaire ();
+        //Inventaire fleur = new Inventaire ();
         // fleur.setName();
         // fleur.setColor();
         // fleur.setPrice();
         // fleur.setQuantity();
         
-        // ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
-        // String message = CtrF.CtrI_Enregistrer(fleur);
-        // System.out.println(message);
+        ControleurInventaire CtrF = ControleurInventaire.getControleurInventaire();
+        List<Inventaire> liste = CtrF.CtrI_GetAll();
+        System.out.println(liste);
     }
 }

@@ -19,7 +19,6 @@ public class ControleurInventaire implements IActionsInventaire {
             if (CtrI_Instance == null) {
                 CtrI_Instance = new ControleurInventaire();
                 Dao_Instance = DaoInventaire.getInventaireDao();
-                CtrI_Instance.CtrI_GetAll();
             }
             return CtrI_Instance;
         } catch (Exception e) {
@@ -35,11 +34,10 @@ public class ControleurInventaire implements IActionsInventaire {
         return message;
     }
 
-    public void CtrI_GetAll() {
+    public List<Inventaire> CtrI_GetAll() {
         List<Inventaire> inventaireComplet = new ArrayList<>();
         inventaireComplet = Dao_Instance.MdlI_GetAll();
-        System.out.print(inventaireComplet);
-        // return inventaireComplet;
+        return inventaireComplet;
     }
 
 

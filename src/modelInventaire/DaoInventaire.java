@@ -39,6 +39,7 @@ public class DaoInventaire implements IDaoInventaire {
             // Class.forName(PILOTE);
             if (instanceDao == null) {
                 instanceDao = new DaoInventaire();
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection(URL_BD, USAGER, PASS);
             }
             return instanceDao;

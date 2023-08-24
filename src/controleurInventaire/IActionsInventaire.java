@@ -9,7 +9,7 @@ public interface IActionsInventaire {
     public String CtrI_MiseAJour(Inventaire fleur);
 
     // affiche l'inventaire
-    public void CtrI_GetAll();
+    public List<Inventaire> CtrI_GetAll();
 
     // affiche une fleur paticulière de l'inventaire à partir de son ID
     // public Inventaire CtrI_GetById(int id);
