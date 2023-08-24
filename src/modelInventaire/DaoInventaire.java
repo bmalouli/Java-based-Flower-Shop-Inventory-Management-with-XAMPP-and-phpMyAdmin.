@@ -1,6 +1,7 @@
 package modelInventaire;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +15,8 @@ public class DaoInventaire implements IDaoInventaire {
     private static DaoInventaire instanceDao = null;
 
     // MySQL
-    //private static final String PILOTE = "com.mysql.jdbc.Driver";
-    private static final String URL_BD = "jdbc:mysql://localhost/fleuriste_titania";
+    private static final String PILOTE = "com.mysql.jdbc.Driver"; //use to establish a connection to the database
+    private static final String URL_BD = "jdbc:mysql://localhost:8080/fleuriste_titania"; //mettre le # de port?
     private static final String USAGER = "root";
     private static final String PASS = "";
 
@@ -36,7 +37,7 @@ public class DaoInventaire implements IDaoInventaire {
     
     public static synchronized DaoInventaire getInventaireDao () {
         try {
-            // Class.forName(PILOTE);
+            Class.forName("com.mysql.jdbc.Driver");
             if (instanceDao == null) {
                 instanceDao = new DaoInventaire();
                 conn = DriverManager.getConnection(URL_BD, USAGER, PASS);
@@ -51,6 +52,30 @@ public class DaoInventaire implements IDaoInventaire {
 
 
     //IMPLÉMENTATION DES MÉTHODES PROPRES À LA GESTION DE LA TABLE inventaire DE LA BDD
+
+    // Update, il faut avant appeler MdlI_GetById(id) pour obtenir
+    // les données à modifier via une interface et après envoyer 
+    // à MdlI_Enregistrer(fleur) pour faire la mise à  jour.
+    public int MdlI_MiseAJour(Inventaire fleur) {
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement(MAJ);
+            stmt.setString(1, fleur.getName());
+            stmt.setString(2, fleur.getColor());
+            stmt.setInt(3, fleur.getPrice());
+            stmt.setInt(4, fleur.getQuantity());
+
+            return stmt.executeUpdate(); //devrait retourner 1 car une ligne de la table a été modifiée
+        } catch (SQLException e) {
+            // e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
+        }
+    }
+
 
     public List<Inventaire> MdlI_GetAll() {
         PreparedStatement stmt = null;
@@ -74,8 +99,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
 
         return listeInventaire;
@@ -107,8 +132,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -137,31 +162,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
-        }
-    }
-
-    // Update, il faut avant appeler MdlI_GetById(id) pour obtenir
-    // les données à modifier via une interface et après envoyer 
-    // à MdlI_Enregistrer(fleur) pour faire la mise à  jour.
-    public int MdlI_MiseAJour(Inventaire fleur) {
-        PreparedStatement stmt = null;
-       ;
-        try {
-            stmt = conn.prepareStatement(MAJ);
-            stmt.setString(1, fleur.getName());
-            stmt.setString(2, fleur.getColor());
-            stmt.setInt(3, fleur.getPrice());
-            stmt.setInt(4, fleur.getQuantity());
-
-            return stmt.executeUpdate();
-        } catch (SQLException e) {
-            // e.printStackTrace();
-            throw new RuntimeException(e);
-        } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -178,8 +180,8 @@ public class DaoInventaire implements IDaoInventaire {
             // e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
@@ -202,13 +204,13 @@ public class DaoInventaire implements IDaoInventaire {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            MdlF_Fermer(stmt);
-            MdlF_Fermer(conn);
+            MdlI_Fermer(stmt);
+            MdlI_Fermer(conn);
         }
     }
 
     //UTILITAIRES
-    private static void MdlF_Fermer(Connection conn) {
+    private static void MdlI_Fermer(Connection conn) {
         if (conn != null) {
             try {
                 conn.close();
@@ -219,7 +221,7 @@ public class DaoInventaire implements IDaoInventaire {
         }
     }
 
-    private static void MdlF_Fermer(Statement stmt) {
+    private static void MdlI_Fermer(Statement stmt) {
         if (stmt != null) {
             try {
                 stmt.close();

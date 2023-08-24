@@ -1,23 +1,26 @@
 package controleurInventaire;
 
 import modelInventaire.Inventaire;
+import java.util.*;
 
 public interface IActionsInventaire {
-    // Pour le CRUD - Create Read Update Delete
 
-    // Create
-    public String ctrI_MiseAJour(Inventaire fleur);
-    
-    // // Read
-    // public List<Film> CtrF_GetAllFilms();
+    // met à jour la base de donnée suite à un commande (restock) ou à une vente
+    public int CtrI_MiseAJour(Inventaire fleur);
 
-    // public Film CtrF_GetFilmById(int idf);
+    // affiche l'inventaire
+    public List<Inventaire> CtrI_GetAll();
 
-    // public Film CtrF_GetFilmByTitre(String titre);
+    //affiche une fleur paticulière de l'inventaire à partir de son ID
+    public Inventaire CtrI_GetById(int id);
 
-    // // Update
-    // public int CtrF_Modifier(Film user);
+    // affiche une fleur paticulière de l'inventaire à partir de son nom
+    public Inventaire CtrI_GetByName(String name);
 
-    // // Delete
-    // public int CtrF_Enlever(int idf); 
+    // supprimer une fleur paticulière de l'inventaire à partir de son ID
+    public int CtrI_Supprimer(int id);
+
+    // ajoute un type de fleur à l'inventaire
+    public String CtrI_Ajouter(Inventaire fleur); 
+
 }
