@@ -34,19 +34,6 @@ public class AjouterFleurFrame extends JFrame {
             }
         });
 
-        // btnOK.addActionListener(new ActionListener() {
-        //     public void actionPerformed(ActionEvent e) {
-        //         // Récupérez l'ID de la fleur depuis le champ de texte
-        //         String fleurId = idTextField.getText();
-
-        //         // Ici, vous pouvez ajouter le code pour traiter l'ajout de la fleur avec l'ID
-        //         // (par exemple, enregistrement dans une base de données ou une liste)
-
-        //         // Fermez la fenêtre AjouterFleurFrame
-        //         dispose();
-        //     }
-        // });
-
         buttonPanel.add(btnCancel);
         buttonPanel.add(btnOK);
 
