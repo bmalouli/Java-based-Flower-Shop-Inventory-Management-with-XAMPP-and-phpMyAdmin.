@@ -43,12 +43,11 @@ public class FleuristeTitaniaMenu extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        // Ajouter le titre
-        JLabel lblTitre = new JLabel("Fleuriste Titania");
-        lblTitre.setFont(new Font("Arial", Font.BOLD, 24));
-        lblTitre.setForeground(new Color(178, 114, 118));
-        lblTitre.setBounds(123, 8, 194, 29);
-        contentPane.add(lblTitre);
+        JLabel lblTitania = new JLabel("Fleuriste Titania");
+        lblTitania.setFont(new Font("Arial", Font.BOLD, 24));
+        lblTitania.setForeground(new Color(178, 114, 118));
+        lblTitania.setBounds(123, 8, 194, 29);
+        contentPane.add(lblTitania);
 
         JButton btnLister = new JButton("Lister l'inventaire");
         btnLister.setForeground(new Color(178, 114, 118));
@@ -65,16 +64,37 @@ public class FleuristeTitaniaMenu extends JFrame {
         contentPane.add(btnLister);
 
         JButton btnRechercherUneFleur = new JButton("Rechercher une fleur");
+        btnRechercherUneFleur.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+                dispose();
+                RechercherFleurFrame recherche = new RechercherFleurFrame();
+                recherche.setVisible(true);
+        	}
+        });
         btnRechercherUneFleur.setForeground(new Color(178, 114, 118));
         btnRechercherUneFleur.setBounds(134, 78, 165, 29);
         contentPane.add(btnRechercherUneFleur);
 
         JButton btnModifierUneFleur = new JButton("Modifier une fleur");
+        btnModifierUneFleur.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+                dispose();
+                ModifierFleurFrame modif = new ModifierFleurFrame();
+                modif.setVisible(true);
+        	}
+        });
         btnModifierUneFleur.setForeground(new Color(178, 114, 118));
         btnModifierUneFleur.setBounds(134, 108, 165, 29);
         contentPane.add(btnModifierUneFleur);
 
         JButton btnAjouterUneFleur = new JButton("Ajouter une fleur");
+        btnAjouterUneFleur.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+                dispose();
+                AjouterFleurFrame ajout = new AjouterFleurFrame();
+                ajout.setVisible(true);
+        	}
+        });
         btnAjouterUneFleur.setForeground(new Color(178, 114, 118));
         btnAjouterUneFleur.setBounds(134, 138, 165, 29);
         contentPane.add(btnAjouterUneFleur);
@@ -82,6 +102,9 @@ public class FleuristeTitaniaMenu extends JFrame {
         JButton btnSupprimerUneFleur = new JButton("Supprimer une fleur");
         btnSupprimerUneFleur.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                dispose();
+                SupprimerFleurFrame suppression = new SupprimerFleurFrame();
+                suppression.setVisible(true);
             }
         });
         btnSupprimerUneFleur.setForeground(new Color(178, 114, 118));

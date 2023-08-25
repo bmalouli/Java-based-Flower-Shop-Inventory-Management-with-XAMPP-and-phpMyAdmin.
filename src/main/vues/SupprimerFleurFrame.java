@@ -37,31 +37,31 @@ public class SupprimerFleurFrame extends JFrame {
         lblNewLabel.setBounds(72, 92, 224, 16);
         contentPane.add(lblNewLabel);
         
-        JLabel lblNom = new JLabel("ID:");
-        lblNom.setForeground(new Color(182, 134, 111));
-        lblNom.setBounds(144, 209, 25, 16);
-        contentPane.add(lblNom);
+        JLabel lblID = new JLabel("ID:");
+        lblID.setForeground(new Color(182, 134, 111));
+        lblID.setBounds(144, 209, 25, 16);
+        contentPane.add(lblID);
         
         JLabel lblCouleur = new JLabel("COULEUR:");
         lblCouleur.setForeground(new Color(182, 134, 111));
         lblCouleur.setBounds(144, 288, 68, 16);
         contentPane.add(lblCouleur);
         
-        JLabel lblPrix = new JLabel("Acceptez-vous de supprimer cette fleur?");
-        lblPrix.setForeground(new Color(182, 134, 111));
-        lblPrix.setBounds(265, 403, 261, 16);
-        contentPane.add(lblPrix);
+        JLabel lblAccepter = new JLabel("Acceptez-vous de supprimer cette fleur?");
+        lblAccepter.setForeground(new Color(182, 134, 111));
+        lblAccepter.setBounds(265, 403, 261, 16);
+        contentPane.add(lblAccepter);
         
-        JLabel lblFleursEnStock = new JLabel("Supprimer une fleur");
-        lblFleursEnStock.setForeground(new Color(178, 114, 118));
-        lblFleursEnStock.setFont(new Font("Arial", Font.BOLD, 24));
-        lblFleursEnStock.setBounds(265, 31, 246, 29);
-        contentPane.add(lblFleursEnStock);
+        JLabel lblSupprimer = new JLabel("Supprimer une fleur");
+        lblSupprimer.setForeground(new Color(178, 114, 118));
+        lblSupprimer.setFont(new Font("Arial", Font.BOLD, 24));
+        lblSupprimer.setBounds(265, 31, 246, 29);
+        contentPane.add(lblSupprimer);
         
-        JButton btnNewButton = new JButton("Retour au menu");
-        btnNewButton.setForeground(new Color(167, 116, 117));
-        btnNewButton.setBounds(19, 537, 143, 29);
-        contentPane.add(btnNewButton);
+        JButton btnRetourButton = new JButton("Retour au menu");
+        btnRetourButton.setForeground(new Color(167, 116, 117));
+        btnRetourButton.setBounds(19, 537, 143, 29);
+        contentPane.add(btnRetourButton);
         
         textField = new JTextField();
         textField.setBounds(308, 87, 210, 26);
@@ -78,29 +78,29 @@ public class SupprimerFleurFrame extends JFrame {
         btnAccepter.setBounds(434, 451, 143, 29);
         contentPane.add(btnAccepter);
         
-        JButton btnModifier = new JButton("Supprimer");
-        btnModifier.setForeground(new Color(167, 116, 117));
-        btnModifier.setBounds(565, 87, 143, 29);
-        contentPane.add(btnModifier);
+        JButton btnSupprimer = new JButton("Rechercher fleur à supprimer");
+        btnSupprimer.setForeground(new Color(167, 116, 117));
+        btnSupprimer.setBounds(545, 87, 224, 29);
+        contentPane.add(btnSupprimer);
         
-        JLabel lblNom_1 = new JLabel("Les informations sur la fleur à supprimer:");
-        lblNom_1.setForeground(new Color(182, 134, 111));
-        lblNom_1.setBounds(117, 167, 270, 16);
-        contentPane.add(lblNom_1);
+        JLabel lblInformations = new JLabel("Les informations sur la fleur à supprimer:");
+        lblInformations.setForeground(new Color(182, 134, 111));
+        lblInformations.setBounds(117, 167, 270, 16);
+        contentPane.add(lblInformations);
         
-        JLabel lblNom_2 = new JLabel("NOM:");
-        lblNom_2.setForeground(new Color(182, 134, 111));
-        lblNom_2.setBounds(144, 250, 41, 16);
-        contentPane.add(lblNom_2);
+        JLabel lblNom = new JLabel("NOM:");
+        lblNom.setForeground(new Color(182, 134, 111));
+        lblNom.setBounds(144, 250, 41, 16);
+        contentPane.add(lblNom);
         
-        JLabel lblPrix_1 = new JLabel("PRIX:");
-        lblPrix_1.setForeground(new Color(182, 134, 111));
-        lblPrix_1.setBounds(144, 324, 31, 16);
-        contentPane.add(lblPrix_1);
+        JLabel lblPrix = new JLabel("PRIX:");
+        lblPrix.setForeground(new Color(182, 134, 111));
+        lblPrix.setBounds(144, 324, 31, 16);
+        contentPane.add(lblPrix);
         
-        JLabel lblQuantit = new JLabel("QUANTITÉ:");
-        lblQuantit.setForeground(new Color(182, 134, 111));
-        lblQuantit.setBounds(144, 358, 74, 16);
-        contentPane.add(lblQuantit);
+        JLabel lblQuantite = new JLabel("QUANTITÉ:");
+        lblQuantite.setForeground(new Color(182, 134, 111));
+        lblQuantite.setBounds(144, 358, 74, 16);
+        contentPane.add(lblQuantite);
     }
 }
