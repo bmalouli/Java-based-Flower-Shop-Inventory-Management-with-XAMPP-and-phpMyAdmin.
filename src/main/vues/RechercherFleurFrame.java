@@ -28,7 +28,7 @@ public class RechercherFleurFrame extends JFrame {
     public RechercherFleurFrame() {
     	setTitle("Rechercher une fleur");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 600); // Définir la taille du JFrame
+        setBounds(100, 100, 800, 600);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(243, 231, 230));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,21 +50,21 @@ public class RechercherFleurFrame extends JFrame {
         lblPrix.setBounds(472, 294, 30, 16);
         contentPane.add(lblPrix);
         
-        JLabel lblQuantit = new JLabel("QUANTITÉ");
-        lblQuantit.setForeground(new Color(182, 134, 111));
-        lblQuantit.setBounds(612, 294, 69, 16);
-        contentPane.add(lblQuantit);
+        JLabel lblQuantite = new JLabel("QUANTITÉ");
+        lblQuantite.setForeground(new Color(182, 134, 111));
+        lblQuantite.setBounds(612, 294, 69, 16);
+        contentPane.add(lblQuantite);
         
-        JLabel lblFleursEnStock = new JLabel("Rechercher une fleur");
-        lblFleursEnStock.setForeground(new Color(178, 114, 118));
-        lblFleursEnStock.setFont(new Font("Arial", Font.BOLD, 24));
-        lblFleursEnStock.setBounds(272, 24, 255, 29);
-        contentPane.add(lblFleursEnStock);
+        JLabel lblRechercher = new JLabel("Rechercher une fleur");
+        lblRechercher.setForeground(new Color(178, 114, 118));
+        lblRechercher.setFont(new Font("Arial", Font.BOLD, 24));
+        lblRechercher.setBounds(272, 24, 255, 29);
+        contentPane.add(lblRechercher);
         
-        JButton btnNewButton = new JButton("Retour au menu");
-        btnNewButton.setForeground(new Color(167, 116, 117));
-        btnNewButton.setBounds(19, 537, 143, 29);
-        contentPane.add(btnNewButton);
+        JButton btnRetourButton = new JButton("Retour au menu");
+        btnRetourButton.setForeground(new Color(167, 116, 117));
+        btnRetourButton.setBounds(19, 537, 143, 29);
+        contentPane.add(btnRetourButton);
         
         textField = new JTextField();
         textField.setBounds(304, 96, 210, 26);
@@ -80,30 +80,30 @@ public class RechercherFleurFrame extends JFrame {
         btnAnnuler.setBounds(596, 214, 143, 29);
         contentPane.add(btnAnnuler);
         
-        JButton btnRechercher = new JButton("Rechercher selon ID");
-        btnRechercher.setForeground(new Color(167, 116, 117));
-        btnRechercher.setBounds(538, 96, 170, 29);
-        contentPane.add(btnRechercher);
+        JButton btnRechercherSelonID = new JButton("Rechercher selon ID");
+        btnRechercherSelonID.setForeground(new Color(167, 116, 117));
+        btnRechercherSelonID.setBounds(538, 96, 170, 29);
+        contentPane.add(btnRechercherSelonID);
         
-        JLabel lblInformationsSurLa = new JLabel("Informations sur la fleur recherché :");
-        lblInformationsSurLa.setForeground(new Color(182, 134, 111));
-        lblInformationsSurLa.setBounds(266, 253, 248, 16);
-        contentPane.add(lblInformationsSurLa);
+        JLabel lblInformations = new JLabel("Informations sur la fleur recherché :");
+        lblInformations.setForeground(new Color(182, 134, 111));
+        lblInformations.setBounds(266, 253, 248, 16);
+        contentPane.add(lblInformations);
         
         JLabel lblId = new JLabel("ID");
         lblId.setForeground(new Color(182, 134, 111));
         lblId.setBounds(68, 294, 30, 16);
         contentPane.add(lblId);
         
-        JCheckBox chckbxNewCheckBox = new JCheckBox("Rechercher avec le ID:");
-        chckbxNewCheckBox.setForeground(new Color(180, 143, 124));
-        chckbxNewCheckBox.setBounds(101, 97, 170, 23);
-        contentPane.add(chckbxNewCheckBox);
+        JCheckBox iDCheckBox = new JCheckBox("Rechercher avec le ID:");
+        iDCheckBox.setForeground(new Color(180, 143, 124));
+        iDCheckBox.setBounds(101, 97, 170, 23);
+        contentPane.add(iDCheckBox);
         
-        JCheckBox chckbxRechercherAvecLe = new JCheckBox("Rechercher avec le NOM:");
-        chckbxRechercherAvecLe.setForeground(new Color(180, 143, 124));
-        chckbxRechercherAvecLe.setBounds(101, 151, 187, 23);
-        contentPane.add(chckbxRechercherAvecLe);
+        JCheckBox nomCheckBox = new JCheckBox("Rechercher avec le NOM:");
+        nomCheckBox.setForeground(new Color(180, 143, 124));
+        nomCheckBox.setBounds(101, 151, 187, 23);
+        contentPane.add(nomCheckBox);
         
         textField_1 = new JTextField();
         textField_1.setColumns(10);

@@ -43,12 +43,11 @@ public class FleuristeTitaniaMenu extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        // Ajouter le titre
-        JLabel lblTitre = new JLabel("Fleuriste Titania");
-        lblTitre.setFont(new Font("Arial", Font.BOLD, 24));
-        lblTitre.setForeground(new Color(178, 114, 118));
-        lblTitre.setBounds(123, 8, 194, 29);
-        contentPane.add(lblTitre);
+        JLabel lblTitania = new JLabel("Fleuriste Titania");
+        lblTitania.setFont(new Font("Arial", Font.BOLD, 24));
+        lblTitania.setForeground(new Color(178, 114, 118));
+        lblTitania.setBounds(123, 8, 194, 29);
+        contentPane.add(lblTitania);
 
         JButton btnLister = new JButton("Lister l'inventaire");
         btnLister.setForeground(new Color(178, 114, 118));

@@ -34,17 +34,17 @@ public class ListeFleursFrame extends JFrame {
         System.out.println(listeInventaire);
     	setTitle("Lister les fleurs");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 600); // Définir la taille du JFrame
+        setBounds(100, 100, 800, 600);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(243, 231, 230));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        contentPane.setLayout(null); // Vous pouvez également utiliser un autre gestionnaire de mise en page pour organiser les composants
+        contentPane.setLayout(null);
         
-        JLabel lblNewLabel = new JLabel("ID");
-        lblNewLabel.setForeground(new Color(182, 134, 111));
-        lblNewLabel.setBounds(63, 111, 22, 16);
-        contentPane.add(lblNewLabel);
+        JLabel lblID = new JLabel("ID");
+        lblID.setForeground(new Color(182, 134, 111));
+        lblID.setBounds(63, 111, 22, 16);
+        contentPane.add(lblID);
         
         JLabel lblNom = new JLabel("NOM");
         lblNom.setForeground(new Color(182, 134, 111));
@@ -61,10 +61,10 @@ public class ListeFleursFrame extends JFrame {
         lblPrix.setBounds(525, 111, 36, 16);
         contentPane.add(lblPrix);
         
-        JLabel lblQuantit = new JLabel("QUANTITÉ");
-        lblQuantit.setForeground(new Color(182, 134, 111));
-        lblQuantit.setBounds(660, 111, 71, 16);
-        contentPane.add(lblQuantit);
+        JLabel lblQuantite = new JLabel("QUANTITÉ");
+        lblQuantite.setForeground(new Color(182, 134, 111));
+        lblQuantite.setBounds(660, 111, 71, 16);
+        contentPane.add(lblQuantite);
         
         JLabel lblFleursEnStock = new JLabel("Inventaire des fleurs");
         lblFleursEnStock.setForeground(new Color(178, 114, 118));
