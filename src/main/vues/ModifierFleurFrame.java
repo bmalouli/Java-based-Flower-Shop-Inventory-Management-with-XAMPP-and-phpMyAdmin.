@@ -18,19 +18,7 @@ public class ModifierFleurFrame extends JFrame {
     private JTextField textFieldPrice;
     private JTextField textFieldQty;
 
-    // public static void main(String[] args) {
-    //     EventQueue.invokeLater(new Runnable() {
-    //         public void run() {
-    //             try {
-    //                 ModifierFleurFrame frame = new ModifierFleurFrame();
-    //                 frame.setVisible(true);
-    //             } catch (Exception e) {
-    //                 e.printStackTrace();
-    //             }
-    //         }
-    //     });
-    // }
-    
+   
     ControleurInventaire CtrI = ControleurInventaire.getControleurInventaire();
     Inventaire fleur =null;
 
