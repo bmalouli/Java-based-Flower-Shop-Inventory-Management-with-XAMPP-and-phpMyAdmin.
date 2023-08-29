@@ -18,18 +18,18 @@ public class ModifierFleurFrame extends JFrame {
     private JTextField textFieldPrice;
     private JTextField textFieldQty;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ModifierFleurFrame frame = new ModifierFleurFrame();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    // public static void main(String[] args) {
+    //     EventQueue.invokeLater(new Runnable() {
+    //         public void run() {
+    //             try {
+    //                 ModifierFleurFrame frame = new ModifierFleurFrame();
+    //                 frame.setVisible(true);
+    //             } catch (Exception e) {
+    //                 e.printStackTrace();
+    //             }
+    //         }
+    //     });
+    // }
     
     ControleurInventaire CtrI = ControleurInventaire.getControleurInventaire();
     Inventaire fleur =null;
@@ -111,7 +111,6 @@ public class ModifierFleurFrame extends JFrame {
         contentPane.add(btnAccepter);
         btnAccepter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //int id = Integer.valueOf(textFieldID.getText());
                 String name = textFieldName.getText();
                 fleur.setName(name);
                 String color = textFieldColor.getText();
@@ -120,9 +119,17 @@ public class ModifierFleurFrame extends JFrame {
                 fleur.setPrice(price);
                 int quantity = Integer.valueOf(textFieldQty.getText());
                 fleur.setQuantity(quantity);
-                //ControleurInventaire CtrI = ControleurInventaire.getControleurInventaire();
                 int modif = CtrI.CtrI_MiseAJour(fleur);
-                if (modif == 1) {System.out.println("fleur modifiée!");}
+                if (modif == 1) {
+                    JOptionPane.showMessageDialog(null, "La modification a bien été enregistrée.", "CONFIRMATION",JOptionPane.INFORMATION_MESSAGE);
+                    textFieldID.setText("");
+                    textFieldName.setText("");
+                    textFieldColor.setText("");
+                    textFieldPrice.setText("");
+                    textFieldQty.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Problème lors de l'enregistrement. Veuillez réessayer.", "ATTENTION",JOptionPane.WARNING_MESSAGE);
+                }
 
             }
         });
@@ -133,13 +140,22 @@ public class ModifierFleurFrame extends JFrame {
         contentPane.add(btnModifier);
         btnModifier.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.valueOf(textFieldID.getText());
-                //ControleurInventaire CtrI = ControleurInventaire.getControleurInventaire();
-                fleur = CtrI.CtrI_GetById(id);
-                textFieldName.setText(fleur.getName());
-                textFieldColor.setText(fleur.getColor());
-                textFieldPrice.setText(String.valueOf(fleur.getPrice()));
-                textFieldQty.setText(String.valueOf(fleur.getQuantity()));
+                String idStr = textFieldID.getText();
+                int id;
+                if (idStr.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Vous devez entrer un valeur!", "ATTENTION",JOptionPane.WARNING_MESSAGE);
+                } else {
+                    id = Integer.valueOf(idStr);
+                    fleur = CtrI.CtrI_GetById(id);
+                    if (fleur == null ) {
+                        JOptionPane.showMessageDialog(null, "Erreur dans l'entrée ou l'id n'existe pas. Vérifiez vos données.", "ATTENTION",JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        textFieldName.setText(fleur.getName());
+                        textFieldColor.setText(fleur.getColor());
+                        textFieldPrice.setText(String.valueOf(fleur.getPrice()));
+                        textFieldQty.setText(String.valueOf(fleur.getQuantity()));
+                    }
+                }
 
             }
         });
