@@ -61,10 +61,17 @@ public class RechercherFleurFrame extends JFrame {
         lblRechercher.setBounds(272, 24, 255, 29);
         contentPane.add(lblRechercher);
         
-        JButton btnRetourButton = new JButton("Retour au menu");
-        btnRetourButton.setForeground(new Color(167, 116, 117));
-        btnRetourButton.setBounds(19, 537, 143, 29);
-        contentPane.add(btnRetourButton);
+        JButton btnRetour = new JButton("Retour au menu");
+        btnRetour.setForeground(new Color(167, 116, 117));
+        btnRetour.setBounds(19, 537, 143, 29);
+        contentPane.add(btnRetour);
+        btnRetour.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                FleuristeTitaniaMenu menu = new FleuristeTitaniaMenu();
+                menu.setVisible(true);
+            }
+        });
         
         textField = new JTextField();
         textField.setBounds(304, 96, 210, 26);
