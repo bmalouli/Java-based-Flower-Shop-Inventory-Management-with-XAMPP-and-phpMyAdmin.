@@ -3,6 +3,8 @@ package main.vues;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SupprimerFleurFrame extends JFrame {
 
@@ -62,6 +64,13 @@ public class SupprimerFleurFrame extends JFrame {
         btnRetourButton.setForeground(new Color(167, 116, 117));
         btnRetourButton.setBounds(19, 537, 143, 29);
         contentPane.add(btnRetourButton);
+        btnRetourButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                FleuristeTitaniaMenu menu = new FleuristeTitaniaMenu();
+                menu.setVisible(true);
+            }
+        });
         
         textField = new JTextField();
         textField.setBounds(308, 87, 210, 26);

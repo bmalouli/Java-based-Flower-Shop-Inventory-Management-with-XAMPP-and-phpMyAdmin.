@@ -32,6 +32,8 @@ public class AjouterFleurFrame extends JFrame {
 
         btnCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	FleuristeTitaniaMenu frame = new FleuristeTitaniaMenu();
+                frame.setVisible(true);
                 dispose();
             }
         });
