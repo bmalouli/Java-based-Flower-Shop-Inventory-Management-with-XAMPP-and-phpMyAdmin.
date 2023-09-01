@@ -10,18 +10,6 @@ public class CreationBouquetFrame extends JFrame {
     private JTextField textField;
     private JTextField textField_1;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ListeFleursFrame frame = new ListeFleursFrame();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public CreationBouquetFrame() {
     	setTitle("Création d'un bouquet");

@@ -16,19 +16,6 @@ public class ListeFleursFrame extends JFrame {
     private List<Inventaire> listeInventaire;
     private JPanel contentPane;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ListeFleursFrame frame = new ListeFleursFrame();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
     public ListeFleursFrame() {
         ControleurInventaire cont = ControleurInventaire.getControleurInventaire();
         this.listeInventaire = cont.CtrI_GetAll();

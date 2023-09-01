@@ -11,19 +11,6 @@ public class SupprimerFleurFrame extends JFrame {
     private JPanel contentPane;
     private JTextField textField;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ListeFleursFrame frame = new ListeFleursFrame();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
     public SupprimerFleurFrame() {
     	setTitle("Supprimer une fleur");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

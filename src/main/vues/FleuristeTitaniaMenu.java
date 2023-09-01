@@ -18,19 +18,6 @@ public class FleuristeTitaniaMenu extends JFrame {
 
     private JPanel contentPane;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    FleuristeTitaniaMenu frame = new FleuristeTitaniaMenu();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
     public FleuristeTitaniaMenu() {
         
     	setTitle("Menu");
