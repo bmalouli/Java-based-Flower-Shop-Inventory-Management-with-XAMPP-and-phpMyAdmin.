@@ -92,7 +92,14 @@ public class ModifierFleurFrame extends JFrame {
         btnAnnuler.setForeground(new Color(167, 116, 117));
         btnAnnuler.setBounds(229, 415, 143, 29);
         contentPane.add(btnAnnuler);
-        
+        btnAnnuler.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                FleuristeTitaniaMenu menu = new FleuristeTitaniaMenu();
+                menu.setVisible(true);
+            }
+        });
+
         JButton btnAccepter = new JButton("Accepter");
         btnAccepter.setForeground(new Color(167, 116, 117));
         btnAccepter.setBounds(434, 415, 143, 29);
