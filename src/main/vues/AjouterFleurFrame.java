@@ -1,50 +1,118 @@
 package main.vues;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+import controleurInventaire.ControleurInventaire;
+import modelInventaire.Inventaire;
+
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AjouterFleurFrame extends JFrame {
-    private JTextField idTextField;
-    
+    ControleurInventaire cont = ControleurInventaire.getControleurInventaire();
+
+    private JPanel contentPane;
+    private JTextField textField_1;
+    private JTextField textField_2;
+    private JTextField textField_3;
+    private JTextField textField_4;
+
     public AjouterFleurFrame() {
-        setTitle("Ajouter une fleur");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(300, 150);
-        setLocationRelativeTo(null);
-
-        JPanel contentPane = new JPanel();
+    	setTitle("Ajouter une fleur");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 800, 600); // Définir la taille du JFrame
+        contentPane = new JPanel();
         contentPane.setBackground(new Color(243, 231, 230));
-        contentPane.setLayout(new BorderLayout());
-
-        JLabel lblId = new JLabel("ID de la fleur :");
-        lblId.setForeground(new Color(178, 114, 118));
-        idTextField = new JTextField(10);
-
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(new Color(240, 231, 230));
-        JButton btnCancel = new JButton("Annuler");
-        JButton btnOK = new JButton("OK");
-
-        btnCancel.setForeground(new Color(178, 114, 118));
-        btnOK.setForeground(new Color(178, 114, 118));
-
-        btnCancel.addActionListener(new ActionListener() {
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        JLabel lblNom = new JLabel("Ajouter le NOM:");
+        lblNom.setForeground(new Color(182, 134, 111));
+        lblNom.setBounds(229, 134, 112, 16);
+        contentPane.add(lblNom);
+        
+        JLabel lblCouleur = new JLabel("Ajouter la COULEUR:");
+        lblCouleur.setForeground(new Color(182, 134, 111));
+        lblCouleur.setBounds(229, 195, 134, 16);
+        contentPane.add(lblCouleur);
+        
+        JLabel lblPrix = new JLabel("Ajouter le PRIX:");
+        lblPrix.setForeground(new Color(182, 134, 111));
+        lblPrix.setBounds(229, 265, 99, 16);
+        contentPane.add(lblPrix);
+        
+        JLabel lblQuantite = new JLabel("Ajouter la QUANTITÉ:");
+        lblQuantite.setForeground(new Color(182, 134, 111));
+        lblQuantite.setBounds(229, 339, 134, 16);
+        contentPane.add(lblQuantite);
+        
+        JLabel lblFleursEnStock = new JLabel("Ajouter une fleur");
+        lblFleursEnStock.setForeground(new Color(178, 114, 118));
+        lblFleursEnStock.setFont(new Font("Arial", Font.BOLD, 24));
+        lblFleursEnStock.setBounds(282, 25, 238, 29);
+        contentPane.add(lblFleursEnStock);
+        
+        JButton btnNewButton = new JButton("Retour au menu");
+        btnNewButton.setForeground(new Color(167, 116, 117));
+        btnNewButton.setBounds(25, 516, 143, 29);
+        btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	FleuristeTitaniaMenu frame = new FleuristeTitaniaMenu();
-                frame.setVisible(true);
+                FleuristeTitaniaMenu menuTitanaiFrame = new FleuristeTitaniaMenu();
+                menuTitanaiFrame.setVisible(true);
                 dispose();
             }
         });
+        contentPane.add(btnNewButton);
+        
+        textField_1 = new JTextField();
+        textField_1.setColumns(10);
+        textField_1.setBounds(408, 129, 210, 26);
+        contentPane.add(textField_1);
+        
+        textField_2 = new JTextField();
+        textField_2.setColumns(10);
+        textField_2.setBounds(408, 190, 210, 26);
+        contentPane.add(textField_2);
+        
+        textField_3 = new JTextField();
+        textField_3.setColumns(10);
+        textField_3.setBounds(408, 260, 210, 26);
+        contentPane.add(textField_3);
+        
+        textField_4 = new JTextField();
+        textField_4.setColumns(10);
+        textField_4.setBounds(408, 334, 210, 26);
+        contentPane.add(textField_4);
+        
+        JButton btnAnnuler = new JButton("Annuler");
+        btnAnnuler.setForeground(new Color(167, 116, 117));
+        btnAnnuler.setBounds(229, 415, 143, 29);
+        contentPane.add(btnAnnuler);
+        
+        JButton btnAccepter = new JButton("Accepter");
+        btnAccepter.setForeground(new Color(167, 116, 117));
+        btnAccepter.setBounds(475, 415, 143, 29);
+        btnAccepter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Inventaire inventaire = new Inventaire();
+                String name = textField_1.getText();
+                inventaire.setName(name);
+                String color = textField_2.getText();
+                inventaire.setColor(color);
+                int price = Integer.valueOf(textField_3.getText());
+                inventaire.setPrice(price);
+                int quantity = Integer.valueOf(textField_4.getText());
+                inventaire.setQuantity(quantity);
 
-        buttonPanel.add(btnCancel);
-        buttonPanel.add(btnOK);
-
-        contentPane.add(lblId, BorderLayout.WEST);
-        contentPane.add(idTextField, BorderLayout.CENTER);
-        contentPane.add(buttonPanel, BorderLayout.SOUTH);
-
-        setContentPane(contentPane);
+                cont.CtrI_Ajouter(inventaire);
+                JOptionPane.showMessageDialog(null, "Ajout avec succès.", "Ajout",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        contentPane.add(btnAccepter);
+        
     }
 }
