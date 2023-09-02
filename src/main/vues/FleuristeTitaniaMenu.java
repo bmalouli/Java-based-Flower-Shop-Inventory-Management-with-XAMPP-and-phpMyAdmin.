@@ -1,6 +1,5 @@
 package main.vues;
 
-import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,7 +21,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         
     	setTitle("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(100, 100, 509, 384);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(243, 231, 230));
         contentPane.setBorder(new EmptyBorder(50, 50, 50, 50));
@@ -33,7 +32,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         JLabel lblTitania = new JLabel("Fleuriste Titania");
         lblTitania.setFont(new Font("Arial", Font.BOLD, 24));
         lblTitania.setForeground(new Color(178, 114, 118));
-        lblTitania.setBounds(123, 8, 194, 29);
+        lblTitania.setBounds(161, 17, 194, 29);
         contentPane.add(lblTitania);
 
         JButton btnLister = new JButton("Lister l'inventaire");
@@ -50,9 +49,7 @@ public class FleuristeTitaniaMenu extends JFrame {
                 }
             }
         });
-        btnLister.setBounds(134, 49, 165, 29);
-        contentPane.add(btnLister);
-        btnLister.setBounds(134, 49, 165, 29);
+        btnLister.setBounds(173, 58, 165, 29);
         contentPane.add(btnLister);
 
         JButton btnRechercherUneFleur = new JButton("Rechercher une fleur");
@@ -70,7 +67,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         	}
         });
         btnRechercherUneFleur.setForeground(new Color(178, 114, 118));
-        btnRechercherUneFleur.setBounds(134, 78, 165, 29);
+        btnRechercherUneFleur.setBounds(173, 99, 165, 29);
         contentPane.add(btnRechercherUneFleur);
 
         JButton btnModifierUneFleur = new JButton("Modifier une fleur");
@@ -88,7 +85,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         	}
         });
         btnModifierUneFleur.setForeground(new Color(178, 114, 118));
-        btnModifierUneFleur.setBounds(134, 108, 165, 29);
+        btnModifierUneFleur.setBounds(173, 140, 165, 29);
         contentPane.add(btnModifierUneFleur);
 
         JButton btnAjouterUneFleur = new JButton("Ajouter une fleur");
@@ -105,7 +102,7 @@ public class FleuristeTitaniaMenu extends JFrame {
         	}
         });
         btnAjouterUneFleur.setForeground(new Color(178, 114, 118));
-        btnAjouterUneFleur.setBounds(134, 138, 165, 29);
+        btnAjouterUneFleur.setBounds(173, 181, 165, 29);
         contentPane.add(btnAjouterUneFleur);
 
         JButton btnSupprimerUneFleur = new JButton("Supprimer une fleur");
@@ -122,7 +119,7 @@ public class FleuristeTitaniaMenu extends JFrame {
             }
         });
         btnSupprimerUneFleur.setForeground(new Color(178, 114, 118));
-        btnSupprimerUneFleur.setBounds(134, 168, 165, 29);
+        btnSupprimerUneFleur.setBounds(173, 260, 165, 29);
         contentPane.add(btnSupprimerUneFleur);
 
         JButton btnQuitter = new JButton("Quitter");
@@ -134,8 +131,13 @@ public class FleuristeTitaniaMenu extends JFrame {
         	}
         });
         btnQuitter.setForeground(new Color(178, 114, 118));
-        btnQuitter.setBounds(134, 226, 165, 29);
+        btnQuitter.setBounds(173, 321, 165, 29);
         contentPane.add(btnQuitter);
+
+        JButton btnCreer = new JButton("Créer un bouquet");
+        btnCreer.setForeground(new Color(178, 114, 118));
+        btnCreer.setBounds(173, 222, 165, 29);
+        contentPane.add(btnCreer);
     }
 }
 

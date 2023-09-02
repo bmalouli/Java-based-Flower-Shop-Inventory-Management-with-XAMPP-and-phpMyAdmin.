@@ -1,5 +1,4 @@
 package main.vues;
-import java.util.*;
 import java.util.List;
 import java.awt.*;
 import javax.swing.*;
