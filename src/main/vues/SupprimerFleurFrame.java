@@ -49,7 +49,7 @@ public class SupprimerFleurFrame extends JFrame {
         
         JButton btnRetourButton = new JButton("Retour au menu");
         btnRetourButton.setForeground(new Color(167, 116, 117));
-        btnRetourButton.setBounds(19, 537, 143, 29);
+        btnRetourButton.setBounds(25, 516, 143, 29);
         contentPane.add(btnRetourButton);
         btnRetourButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

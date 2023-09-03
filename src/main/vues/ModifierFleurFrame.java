@@ -157,7 +157,7 @@ public class ModifierFleurFrame extends JFrame {
 
         JButton btnRetour = new JButton("Retour au menu");
         btnRetour.setForeground(new Color(167, 116, 117));
-        btnRetour.setBounds(19, 537, 143, 29);
+        btnRetour.setBounds(25, 516, 143, 29);
         contentPane.add(btnRetour);
         btnRetour.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
