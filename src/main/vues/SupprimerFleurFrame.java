@@ -3,6 +3,10 @@ package main.vues;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import controleurInventaire.ControleurInventaire;
+import modelInventaire.Inventaire;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -10,6 +14,15 @@ public class SupprimerFleurFrame extends JFrame {
 
     private JPanel contentPane;
     private JTextField textField;
+
+    private JLabel lblID;
+    private JLabel lblNom;
+    private JLabel lblCouleur;
+    private JLabel lblPrix;
+    private JLabel lblQuantite;
+
+    private Inventaire fleur;
+    private ControleurInventaire CtrI = ControleurInventaire.getControleurInventaire();
 
     public SupprimerFleurFrame() {
     	setTitle("Supprimer une fleur");
@@ -25,16 +38,6 @@ public class SupprimerFleurFrame extends JFrame {
         lblNewLabel.setForeground(new Color(182, 134, 111));
         lblNewLabel.setBounds(72, 92, 224, 16);
         contentPane.add(lblNewLabel);
-        
-        JLabel lblID = new JLabel("ID:");
-        lblID.setForeground(new Color(182, 134, 111));
-        lblID.setBounds(144, 209, 25, 16);
-        contentPane.add(lblID);
-        
-        JLabel lblCouleur = new JLabel("COULEUR:");
-        lblCouleur.setForeground(new Color(182, 134, 111));
-        lblCouleur.setBounds(144, 288, 68, 16);
-        contentPane.add(lblCouleur);
         
         JLabel lblAccepter = new JLabel("Acceptez-vous de supprimer cette fleur?");
         lblAccepter.setForeground(new Color(182, 134, 111));
@@ -69,34 +72,70 @@ public class SupprimerFleurFrame extends JFrame {
         btnAnnuler.setBounds(230, 451, 143, 29);
         contentPane.add(btnAnnuler);
         
-        JButton btnAccepter = new JButton("Accepter");
-        btnAccepter.setForeground(new Color(167, 116, 117));
-        btnAccepter.setBounds(434, 451, 143, 29);
-        contentPane.add(btnAccepter);
-        
-        JButton btnSupprimer = new JButton("Rechercher fleur à supprimer");
-        btnSupprimer.setForeground(new Color(167, 116, 117));
-        btnSupprimer.setBounds(545, 87, 224, 29);
-        contentPane.add(btnSupprimer);
-        
         JLabel lblInformations = new JLabel("Les informations sur la fleur à supprimer:");
         lblInformations.setForeground(new Color(182, 134, 111));
         lblInformations.setBounds(117, 167, 270, 16);
         contentPane.add(lblInformations);
+
+        lblID = new JLabel("ID:");
+        lblID.setForeground(new Color(182, 134, 111));
+        lblID.setBounds(144, 209, 25, 16);
+        contentPane.add(lblID);
         
-        JLabel lblNom = new JLabel("NOM:");
+        lblCouleur = new JLabel("COULEUR:");
+        lblCouleur.setForeground(new Color(182, 134, 111));
+        lblCouleur.setBounds(144, 288, 100, 16);
+        contentPane.add(lblCouleur);
+
+        
+        lblNom = new JLabel("NOM:");
         lblNom.setForeground(new Color(182, 134, 111));
-        lblNom.setBounds(144, 250, 41, 16);
+        lblNom.setBounds(144, 250, 100, 16);
         contentPane.add(lblNom);
         
-        JLabel lblPrix = new JLabel("PRIX:");
+        lblPrix = new JLabel("PRIX:");
         lblPrix.setForeground(new Color(182, 134, 111));
-        lblPrix.setBounds(144, 324, 31, 16);
+        lblPrix.setBounds(144, 324, 100, 16);
         contentPane.add(lblPrix);
         
-        JLabel lblQuantite = new JLabel("QUANTITÉ:");
+        lblQuantite = new JLabel("QUANTITÉ:");
         lblQuantite.setForeground(new Color(182, 134, 111));
-        lblQuantite.setBounds(144, 358, 74, 16);
+        lblQuantite.setBounds(144, 358, 100, 16);
         contentPane.add(lblQuantite);
+
+        JButton btnSupprimer = new JButton("Rechercher fleur à supprimer");
+        btnSupprimer.setForeground(new Color(167, 116, 117));
+        btnSupprimer.setBounds(545, 87, 224, 29);
+        contentPane.add(btnSupprimer);
+        btnSupprimer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                fleur = CtrI.CtrI_GetById(Integer.valueOf(textField.getText()));
+                lblID.setText("ID: " + Integer.toString(fleur.getId()));
+                lblNom.setText("NOM: " + fleur.getName());
+                lblCouleur.setText("COULEUR: " + fleur.getColor());
+                lblPrix.setText("PRIX: " + Integer.toString(fleur.getPrice()));
+                lblQuantite.setText("QUANTITE: " + Integer.toString(fleur.getQuantity()));
+                
+            }
+        });
+
+        JButton btnAccepter = new JButton("Accepter");
+        btnAccepter.setForeground(new Color(167, 116, 117));
+        btnAccepter.setBounds(434, 451, 143, 29);
+        contentPane.add(btnAccepter);
+        btnAccepter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int idChoisi = Integer.parseInt(textField.getText());
+                fleur = CtrI.CtrI_GetById(idChoisi);
+                
+                if(fleur != null) {
+                    CtrI.CtrI_Supprimer(idChoisi);
+                    JOptionPane.showMessageDialog(null, "La fleur avec l'Id " +idChoisi+ " a été supprimée avec succès.", "Suppression réussie", JOptionPane.INFORMATION_MESSAGE);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Aucune fleur trouvée avec l'ID " +idChoisi, "Fleur introuvable", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
     }
 }
