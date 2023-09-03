@@ -36,7 +36,7 @@ public class ListeFleursFrame extends JFrame {
         
         JButton btnNewButton = new JButton("Retour au menu");
         btnNewButton.setForeground(new Color(167, 116, 117));
-        btnNewButton.setBounds(19, 537, 143, 29);
+        btnNewButton.setBounds(25, 516, 143, 29);
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 FleuristeTitaniaMenu menuTitanaiFrame = new FleuristeTitaniaMenu();
