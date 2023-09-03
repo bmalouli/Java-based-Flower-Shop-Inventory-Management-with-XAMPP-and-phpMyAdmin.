@@ -21,7 +21,7 @@ public class FleuristeTitaniaMenu extends JFrame {
 
         setTitle("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 509, 384);
+        setBounds(100, 100, 540, 420);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(243, 231, 230));
         contentPane.setBorder(new EmptyBorder(50, 50, 50, 50));
