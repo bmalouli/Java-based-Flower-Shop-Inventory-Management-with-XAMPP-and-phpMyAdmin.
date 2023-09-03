@@ -18,8 +18,8 @@ public class FleuristeTitaniaMenu extends JFrame {
     private JPanel contentPane;
 
     public FleuristeTitaniaMenu() {
-        
-    	setTitle("Menu");
+
+        setTitle("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 509, 384);
         contentPane = new JPanel();
@@ -54,7 +54,7 @@ public class FleuristeTitaniaMenu extends JFrame {
 
         JButton btnRechercherUneFleur = new JButton("Rechercher une fleur");
         btnRechercherUneFleur.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 try {
                     RechercherFleurFrame frame = new RechercherFleurFrame();
                     frame.setVisible(true);
@@ -64,7 +64,7 @@ public class FleuristeTitaniaMenu extends JFrame {
                     dispose();
                 }
 
-        	}
+            }
         });
         btnRechercherUneFleur.setForeground(new Color(178, 114, 118));
         btnRechercherUneFleur.setBounds(173, 99, 165, 29);
@@ -72,7 +72,7 @@ public class FleuristeTitaniaMenu extends JFrame {
 
         JButton btnModifierUneFleur = new JButton("Modifier une fleur");
         btnModifierUneFleur.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 try {
                     ModifierFleurFrame frame = new ModifierFleurFrame();
                     frame.setVisible(true);
@@ -82,7 +82,7 @@ public class FleuristeTitaniaMenu extends JFrame {
                     dispose();
                 }
 
-        	}
+            }
         });
         btnModifierUneFleur.setForeground(new Color(178, 114, 118));
         btnModifierUneFleur.setBounds(173, 140, 165, 29);
@@ -90,7 +90,7 @@ public class FleuristeTitaniaMenu extends JFrame {
 
         JButton btnAjouterUneFleur = new JButton("Ajouter une fleur");
         btnAjouterUneFleur.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 try {
                     AjouterFleurFrame frame = new AjouterFleurFrame();
                     frame.setVisible(true);
@@ -99,7 +99,7 @@ public class FleuristeTitaniaMenu extends JFrame {
                 } finally {
                     dispose();
                 }
-        	}
+            }
         });
         btnAjouterUneFleur.setForeground(new Color(178, 114, 118));
         btnAjouterUneFleur.setBounds(173, 181, 165, 29);
@@ -124,20 +124,31 @@ public class FleuristeTitaniaMenu extends JFrame {
 
         JButton btnQuitter = new JButton("Quitter");
         btnQuitter.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 dispose();
                 ControleurInventaire cont = ControleurInventaire.getControleurInventaire();
                 cont.CtrI_Fermer();
-        	}
+            }
         });
         btnQuitter.setForeground(new Color(178, 114, 118));
         btnQuitter.setBounds(173, 321, 165, 29);
         contentPane.add(btnQuitter);
 
         JButton btnCreer = new JButton("Créer un bouquet");
+        btnCreer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    CreationBouquetFrame frame = new CreationBouquetFrame();
+                    frame.setVisible(true);
+                } catch (Exception er) {
+                    er.printStackTrace();
+                } finally {
+                    dispose();
+                }
+            }
+        });
         btnCreer.setForeground(new Color(178, 114, 118));
         btnCreer.setBounds(173, 222, 165, 29);
         contentPane.add(btnCreer);
     }
 }
-
