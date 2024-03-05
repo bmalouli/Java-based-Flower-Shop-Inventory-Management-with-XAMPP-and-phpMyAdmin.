@@ -24,11 +24,6 @@ public class CreationBouquetFrame extends JFrame {
     int compteur = 0;
     Map<Integer, Integer> fleursBouquet = new HashMap<>();
 
-    public static void main(String[] args) {
-        CreationBouquetFrame frame = new CreationBouquetFrame();
-        frame.setVisible(true);
-    }
-
     public CreationBouquetFrame() {
         setTitle("Création d'un bouquet");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
