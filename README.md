@@ -1,4 +1,4 @@
-#### Flower Shop Inventory Management System, developed in Java, with database management created using XAMPP and phpMyAdmin. The application features a user-friendly menu offering options to list inventory, search for flowers, modify flower details, add new flowers, create bouquets, delete flowers and exit the program.
+#### Flower Shop Inventory Management System, developed in Java, with database management created using XAMPP and phpMyAdmin. The application features a user-friendly menu offering options to list inventory, search for flowers, modify flower details add new flowers, create bouquets, delete flowers and exit the program.
 
 
 ## Program opening Menu:
